@@ -1,0 +1,11 @@
+C:\Users\lenovo\Desktop\My-Github\RandomNumberGenerator\bin\Debug\RandomNumberGenerator.exe.config
+C:\Users\lenovo\Desktop\My-Github\RandomNumberGenerator\bin\Debug\RandomNumberGenerator.exe
+C:\Users\lenovo\Desktop\My-Github\RandomNumberGenerator\bin\Debug\RandomNumberGenerator.pdb
+C:\Users\lenovo\Desktop\My-Github\RandomNumberGenerator\obj\Debug\RandomNumberGenerator.csproj.AssemblyReference.cache
+C:\Users\lenovo\Desktop\My-Github\RandomNumberGenerator\obj\Debug\RandomNumberGenerator.csproj.SuggestedBindingRedirects.cache
+C:\Users\lenovo\Desktop\My-Github\RandomNumberGenerator\obj\Debug\RandomNumberGenerator.Form1.resources
+C:\Users\lenovo\Desktop\My-Github\RandomNumberGenerator\obj\Debug\RandomNumberGenerator.Properties.Resources.resources
+C:\Users\lenovo\Desktop\My-Github\RandomNumberGenerator\obj\Debug\RandomNumberGenerator.csproj.GenerateResource.cache
+C:\Users\lenovo\Desktop\My-Github\RandomNumberGenerator\obj\Debug\RandomNumberGenerator.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\My-Github\RandomNumberGenerator\obj\Debug\RandomNumberGenerator.exe
+C:\Users\lenovo\Desktop\My-Github\RandomNumberGenerator\obj\Debug\RandomNumberGenerator.pdb

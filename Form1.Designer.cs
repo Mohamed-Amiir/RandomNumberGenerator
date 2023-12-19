@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.RandomNumbers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtMultiplier = new System.Windows.Forms.TextBox();
+            this.txtSeed = new System.Windows.Forms.TextBox();
+            this.txtIncrement = new System.Windows.Forms.TextBox();
+            this.txtModulus = new System.Windows.Forms.TextBox();
+            this.txtIterations = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.RandomNumbers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,54 +51,48 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RandomNumbers});
-            this.dataGridView1.Location = new System.Drawing.Point(439, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(424, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(176, 518);
+            this.dataGridView1.Size = new System.Drawing.Size(167, 518);
             this.dataGridView1.TabIndex = 0;
             // 
-            // RandomNumbers
+            // txtMultiplier
             // 
-            this.RandomNumbers.HeaderText = "Random Numbers";
-            this.RandomNumbers.MinimumWidth = 6;
-            this.RandomNumbers.Name = "RandomNumbers";
-            this.RandomNumbers.Width = 125;
+            this.txtMultiplier.Location = new System.Drawing.Point(288, 89);
+            this.txtMultiplier.Name = "txtMultiplier";
+            this.txtMultiplier.Size = new System.Drawing.Size(100, 22);
+            this.txtMultiplier.TabIndex = 1;
+            this.txtMultiplier.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox1
+            // txtSeed
             // 
-            this.textBox1.Location = new System.Drawing.Point(288, 89);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtSeed.Location = new System.Drawing.Point(288, 152);
+            this.txtSeed.Name = "txtSeed";
+            this.txtSeed.Size = new System.Drawing.Size(100, 22);
+            this.txtSeed.TabIndex = 2;
             // 
-            // textBox2
+            // txtIncrement
             // 
-            this.textBox2.Location = new System.Drawing.Point(288, 152);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 2;
+            this.txtIncrement.Location = new System.Drawing.Point(288, 213);
+            this.txtIncrement.Name = "txtIncrement";
+            this.txtIncrement.Size = new System.Drawing.Size(100, 22);
+            this.txtIncrement.TabIndex = 3;
             // 
-            // textBox3
+            // txtModulus
             // 
-            this.textBox3.Location = new System.Drawing.Point(288, 213);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 3;
+            this.txtModulus.Location = new System.Drawing.Point(288, 270);
+            this.txtModulus.Name = "txtModulus";
+            this.txtModulus.Size = new System.Drawing.Size(100, 22);
+            this.txtModulus.TabIndex = 4;
             // 
-            // textBox4
+            // txtIterations
             // 
-            this.textBox4.Location = new System.Drawing.Point(288, 270);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 4;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(288, 326);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 5;
+            this.txtIterations.Location = new System.Drawing.Point(288, 326);
+            this.txtIterations.Name = "txtIterations";
+            this.txtIterations.Size = new System.Drawing.Size(100, 22);
+            this.txtIterations.TabIndex = 5;
             // 
             // textBox6
             // 
@@ -175,6 +169,16 @@
             this.button1.TabIndex = 13;
             this.button1.Text = "Generate Random Numbers";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // RandomNumbers
+            // 
+            this.RandomNumbers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.RandomNumbers.HeaderText = "Random Numbers";
+            this.RandomNumbers.MinimumWidth = 6;
+            this.RandomNumbers.Name = "RandomNumbers";
+            this.RandomNumbers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.RandomNumbers.Width = 111;
             // 
             // Form1
             // 
@@ -189,11 +193,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtIterations);
+            this.Controls.Add(this.txtModulus);
+            this.Controls.Add(this.txtIncrement);
+            this.Controls.Add(this.txtSeed);
+            this.Controls.Add(this.txtMultiplier);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -206,12 +210,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RandomNumbers;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtMultiplier;
+        private System.Windows.Forms.TextBox txtSeed;
+        private System.Windows.Forms.TextBox txtIncrement;
+        private System.Windows.Forms.TextBox txtModulus;
+        private System.Windows.Forms.TextBox txtIterations;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -220,6 +223,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RandomNumbers;
     }
 }
 
