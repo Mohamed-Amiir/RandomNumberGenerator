@@ -19,60 +19,30 @@ namespace RandomNumberGenerator
         private int currentIteration = 0;
         public static int FindLongestChain(int[] nums)
         {
-            int[] nextIndex = new int[nums.Length]; // Stores the next element index for each element.
+            List<int> seenNumbers = new List<int>();
+            int cycleLengths = 0;
+
             for (int i = 0; i < nums.Length; i++)
             {
-                nextIndex[i] = -1; // Initially, no next element for any element.
-            }
+                int currentNumber = nums[i];
 
-            // Build the nextIndex array based on the given array.
-            for (int i = 0; i < nums.Length; i++)
-            {
-                if (nums[i] >= 0 && nums[i] < nums.Length)
+                // Check if the number is already in the seenNumbers list
+                if (seenNumbers.Contains(currentNumber))
                 {
-                    nextIndex[i] = nums[i];
-                }
-            }
+                    // If yes, a cycle is found, and we store its length
+                    int startIndex = seenNumbers.IndexOf(currentNumber);
+                    int cycleLength = i - startIndex;
+                    cycleLengths = cycleLength;
 
-            // Find the longest chain using Floyd's cycle-finding algorithm.
-            int slow = 0, fast = 0;
-            while (nextIndex[fast] != -1 && nextIndex[nextIndex[fast]] != -1)
-            {
-                slow = nextIndex[slow];
-                fast = nextIndex[nextIndex[fast]];
-                if (slow == fast)
-                {
-                    // Cycle detected, calculate its length.
-                    int cycleLength = 1;
-                    do
-                    {
-                        if (nextIndex[fast] != -1)
-                        {
-                            fast = nextIndex[fast];
-                            cycleLength++;
-                        }
-                    } while (fast != slow);
+                    // Clear the seenNumbers list for the next cycle
+                    seenNumbers.Clear();
+                    break;
+                }
 
-                    return cycleLength;
-                }
+                // Add the current number to the seenNumbers list
+                seenNumbers.Add(currentNumber);
             }
-
-            // No cycle found, return the longest consecutive sequence.
-            int maxLength = 1;
-            int currentLength = 1;
-            for (int i = 0; i < nextIndex.Length; i++)
-            {
-                if (nextIndex[i] == i + 1)
-                {
-                    currentLength++;
-                }
-                else
-                {
-                    maxLength = Math.Max(maxLength, currentLength);
-                    currentLength = 1;
-                }
-            }
-            return Math.Max(maxLength, currentLength);
+            return cycleLengths;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,7 +53,7 @@ namespace RandomNumberGenerator
             int modulus = int.Parse(txtModulus.Text);
             int increment = int.Parse(txtIncrement.Text);
             int iterations = int.Parse(txtIterations.Text);
-            int[] result = new int[] { };
+            int[] result = { };
             for (int i = 0; i < iterations; i++)
             {
                 seed = GenerateRandomNumber((int)seed, (int)multiplier, (int)increment, (int)modulus);
