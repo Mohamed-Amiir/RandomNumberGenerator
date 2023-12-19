@@ -17,12 +17,12 @@ namespace RandomNumberGenerator
             InitializeComponent();
         }
         private int currentIteration = 0;
-        public static int FindLongestChain(int[] nums)
+        public static int FindLongestChain(List<int> nums)
         {
             List<int> seenNumbers = new List<int>();
             int cycleLengths = 0;
 
-            for (int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Count(); i++)
             {
                 int currentNumber = nums[i];
 
@@ -53,12 +53,13 @@ namespace RandomNumberGenerator
             int modulus = int.Parse(txtModulus.Text);
             int increment = int.Parse(txtIncrement.Text);
             int iterations = int.Parse(txtIterations.Text);
-            int[] result = { };
+            List<int> result = new List<int>();
             for (int i = 0; i < iterations; i++)
             {
                 seed = GenerateRandomNumber((int)seed, (int)multiplier, (int)increment, (int)modulus);
+                result.Add(seed);
                 dataGridView1.Rows.Add(seed, ++currentIteration);
-                result.Append(seed);
+      
             }
             textBox6.Text = FindLongestChain(result).ToString();
         }
